@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+  logbook.processor:
+    image: logbook.processor
+    build:
+      context: ./Logbook.Processor
+      dockerfile: Dockerfile
+    environment:
+      LOG_RABBIT_HOST: "log-rabbit"
+    networks:
+      - log
+
+networks:
+  log:
+    external: 
+      name: erk_log

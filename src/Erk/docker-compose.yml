@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+
+  log-rabbit:
+    image: "rabbitmq:3-management"
+    hostname: rabbit
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+    networks:
+      - log
+
+  elasticsearch:
+    image: "docker.elastic.co/elasticsearch/elasticsearch:5.4.0"
+    volumes:
+      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - c:/Volumes/logbook/logelasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - log
+
+  kibana:
+    image: "docker.elastic.co/kibana/kibana:5.4.0"
+    volumes:
+      - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - "5601:5601"
+    networks:
+      - log
+    depends_on:
+      - elasticsearch
+
+networks:
+
+  log:
+    driver: bridge
