@@ -22,6 +22,6 @@ Logbook is a logging engine using RabbitMq, Elasticsearch and Kibana.
 2. Set docker-compose as startup project  
 ![N|Solid](./res/docker-compose-startup.png?raw=true)
  
-3. CTRL+F5 :)
+3. Run solution.
  
 4. Log stuff.
