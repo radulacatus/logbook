@@ -7,8 +7,8 @@ namespace Logbook.Processor
     {
         public static class IndexNames
         {
-            public static readonly IndexName LogMessage = new IndexName {Name = "logs", Type = typeof(LogMessage)};
-            public static readonly IndexName AnalyticsMessage = new IndexName {Name = "analytics", Type = typeof(AnalyticsMessage) };
+            public static readonly IndexName LogMessage = "logs";
+            public static readonly IndexName AnalyticsMessage = "analytics";
         }
     }
 }

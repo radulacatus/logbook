@@ -19,7 +19,7 @@ services:
       - log
 
   elasticsearch:
-    image: "docker.elastic.co/elasticsearch/elasticsearch:5.4.0"
+    image: "docker.elastic.co/elasticsearch/elasticsearch-oss:6.3.2"
     volumes:
       - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - c:/Volumes/logbook/logelasticsearch:/usr/share/elasticsearch/data
@@ -32,7 +32,7 @@ services:
       - log
 
   kibana:
-    image: "docker.elastic.co/kibana/kibana:5.4.0"
+    image: "docker.elastic.co/kibana/kibana-oss:6.3.2"
     volumes:
       - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
