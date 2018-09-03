@@ -6,7 +6,7 @@ Logbook is a logging engine using RabbitMq, Elasticsearch and Kibana.
 
 ##### Prerequisites
  
-  - .Net Core 1.1
+  - .Net Core 2.0
   - Visual Studio 2017 (+Container development tools)
   - Docker for Windows
 
